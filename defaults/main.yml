@@ -1,33 +1,33 @@
 ---
-gnome_core_packages:
-  - adwaita-icon-theme
-  - eog
-  - evince
-  - gdm
-  - gnome-backgrounds
-  - gnome-calculator
-  - gnome-control-center
-  - gnome-disk-utility
-  - gnome-keyring
-  - gnome-screenshot
-  - gnome-session
-  - gnome-settings-daemon
-  - gnome-shell
-  - gnome-system-monitor
-  - gnome-terminal
-  - gnome-themes-standard
-  - gnome-user-docs
-  - gtk3-print-backends
-  - gvfs
-  - gvfs-goa
-  - gvfs-google
-  - gvfs-gphoto2
-  - gvfs-mtp
-  - gvfs-nfs
-  - gvfs-smb
-  - mutter
-  - nautilus
-  - xdg-user-dirs-gtk
-  - yelp
-gnome_extra_packages:
-  - gedit
+gnome:
+  packages:
+    - adwaita-icon-theme
+    - eog
+    - evince
+    - gdm
+    - gnome-backgrounds
+    - gnome-calculator
+    - gnome-control-center
+    - gnome-disk-utility
+    - gnome-keyring
+    - gnome-screenshot
+    - gnome-session
+    - gnome-settings-daemon
+    - gnome-shell
+    - gnome-system-monitor
+    - gnome-terminal
+    - gnome-themes-standard
+    - gnome-user-docs
+    - gtk3-print-backends
+    - gvfs
+    - gvfs-goa
+    - gvfs-google
+    - gvfs-gphoto2
+    - gvfs-mtp
+    - gvfs-nfs
+    - gvfs-smb
+    - mutter
+    - nautilus
+    - xdg-user-dirs-gtk
+    - yelp
+    - gedit

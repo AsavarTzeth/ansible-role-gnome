@@ -1,20 +1,9 @@
 ---
-- name: install gnome core packages
+- name: install gnome base packages
   pacman:
     name: "{{ item }}"
     update_cache: true
-    state: present
-  with_items:
-    - "{{ gnome_core_packages }}"
-  tags: gnome
-
-- name: install gnome extra packages
-  pacman:
-    name: "{{ item }}"
-    update_cache: true
-    state: present
-  with_items:
-    - "{{ gnome_extra_packages }}"
+  with_items: "{{ gnome.packages }}"
   tags: gnome
 
 - name: enable gdm login manager
