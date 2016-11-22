@@ -10,3 +10,4 @@
   service:
     name: gdm
     enabled: true
+  tags: gnome
