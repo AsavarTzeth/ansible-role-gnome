@@ -1,9 +1,8 @@
 ---
 - name: install gnome base packages
   pacman:
-    name: "{{ item }}"
+    name: "{{ gnome.packages }}"
     update_cache: true
-  with_items: "{{ gnome.packages }}"
   tags: gnome
 
 - name: enable gdm login manager
