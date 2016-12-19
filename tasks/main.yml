@@ -1,7 +1,7 @@
 ---
 - name: install gnome base packages
   pacman:
-    name: "{{ gnome.packages }}"
+    name: "{{ gnome_packages }}"
     update_cache: true
   tags: gnome
 
@@ -10,3 +10,16 @@
     name: gdm
     enabled: true
   tags: gnome
+
+- name: install gnome shell extensions
+  gnome_shell_extension:
+    name: "{{ item.0.id }}"
+    state: "{{ item.0.state | default(omit) }}"
+    enabled: "{{ item.0.enabled | default(omit) }}"
+    gnome_extension_path: "/home/{{ item.1 }}/.local/share/gnome-shell/extensions/"
+  become: true
+  become_user: "{{ item.1 }}"
+  with_subelements:
+    - "{{ gnome_shell_extensions }}"
+    - users
+  tags: gnome,gnome-extensions
