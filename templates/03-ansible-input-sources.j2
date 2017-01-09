@@ -1,0 +1,6 @@
+{{ ansible_managed | comment }}
+
+{% if keyboard_layout is defined %}
+[org/gnome/desktop/input-sources]
+sources=[('xkb','{{ keyboard_layout }}')]
+{% endif %}

@@ -11,6 +11,22 @@
     enabled: true
   tags: gnome
 
+- name: setup dconf dirs
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0755
+  with_items: "{{ gnome_dconf.dirs }}"
+  tags: gnome
+
+- name: set dconf defaults
+  template:
+    src: "{{ item | basename }}.j2"
+    dest: "{{ item }}"
+    mode: 0644
+  with_items: "{{ gnome_dconf.files }}"
+  tags: gnome
+
 - name: install gnome shell extensions
   gnome_shell_extension:
     name: "{{ item.0.id }}"

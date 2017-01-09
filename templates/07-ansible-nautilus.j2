@@ -1,0 +1,15 @@
+{{ ansible_managed | comment }}
+
+[org/gnome/nautilus/compression]
+default-compression-format='tar.xz'
+
+[org/gnome/nautilus/list-view]
+default-visible-columns=['name','size','type','date_modified']
+
+[org/gnome/nautilus/preferences]
+default-folder-viewer='list-view'
+executable-text-activation='ask'
+search-view='list-view'
+show-create-link=true
+show-delete-permanently=true
+sort-directories-first=true

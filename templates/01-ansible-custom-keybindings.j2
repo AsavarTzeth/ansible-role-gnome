@@ -1,0 +1,13 @@
+{{ ansible_managed | comment }}
+
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/gnome-terminal/']
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/gnome-terminal]
+binding='<Primary><Alt>t'
+command='gnome-terminal'
+{% if 'sv_SE' in locale_lang %}
+name='Öppna Terminal'
+{% else %}
+name='Open Terminal'
+{% endif %}
