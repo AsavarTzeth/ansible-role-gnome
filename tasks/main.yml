@@ -11,6 +11,11 @@
     enabled: true
   tags: gnome
 
+- name: stat yaourt
+  stat: path=/usr/bin/yaourt
+  register: yaourt
+  tags: gnome
+
 - name: setup dconf dirs
   file:
     path: "{{ item }}"
@@ -25,6 +30,7 @@
     dest: "{{ item }}"
     mode: 0644
   with_items: "{{ gnome_dconf.files }}"
+  notify: update dconf db
   tags: gnome
 
 - name: install gnome shell extensions

@@ -1,0 +1,4 @@
+---
+- name: update dconf db
+  command: dconf update
+  tags: gnome

@@ -1,10 +1,8 @@
 {{ ansible_managed | comment }}
 
-{% if 'yaourt' in aur.install %}
 [org/gnome/shell/extensions/arch-update]
-{% if 'sv_SE' in locale_lang %}
-update-cmd="gnome-terminal -e 'sh -c \"yaourt -Syua ; echo Klar - Stäng med Retur/Enter; read\" '"
-{% else %}
+{% if yaourt.stat.exists %}
 update-cmd="gnome-terminal -e 'sh -c \"yaourt -Syua ; echo Done - Press Enter to exit; read\" '"
-{% endif %}
+{% else %}
+update-cmd="gnome-terminal -e 'sh -c \"pacman -Syu ; echo Done - Press Enter to exit; read\" '"
 {% endif %}
