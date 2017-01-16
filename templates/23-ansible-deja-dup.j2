@@ -4,3 +4,6 @@
 delete-after=uint32 182
 exclude-list=['$TRASH','$DOWNLOAD','$DESKTOP','.cache','.cert','.ssh','.config/chromium','.config/google-chrome','.local/share/gnome-boxes/images','.local/share/libvirt/images','.local/share/Steam/appcache','.local/share/Steam/config','.local/share/Steam/depotcache','.local/share/Steam/package','.local/share/Steam/steam','.local/share/Steam/steamapps','.local/share/Steam/SteamApps','.local/share/Steam/tenfoot','.local/share/Steam/ubuntu12_32','.local/share/Steam/ubuntu12_64','.local/share/wineprefixes','.mozilla','.nv','.PlayOnLinux/tmp','.PlayOnLinux/wine','.PlayOnLinux/wineprefix','.ssh','.steam','.wine']
 include-list=['$HOME']
+
+[org/gnome/deja-dup/file]
+path='davs://{{ owncloud_fqdn }}:443/remote.php/webdav/Backup/{{ ansible_hostname }}'

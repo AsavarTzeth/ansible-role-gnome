@@ -32,3 +32,5 @@ gnome_packages:
   - gedit
 
 gnome_shell_extensions: []
+
+owncloud_fqdn: cloud.domain.tld
