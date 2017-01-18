@@ -34,3 +34,6 @@ gnome_packages:
 gnome_shell_extensions: []
 
 owncloud_fqdn: cloud.domain.tld
+
+# Set default keyboard layout used in graphical sessions (X11/Wayland)
+keyboard_layout: se
