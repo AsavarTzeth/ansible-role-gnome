@@ -5,10 +5,18 @@
     update_cache: true
   tags: gnome
 
-- name: enable gdm login manager
-  service:
-    name: gdm
-    enabled: true
+- block:
+  - name: enable gdm.service
+    systemd:
+      name: gdm.service
+      enabled: true
+  rescue:
+  - name: enable gdm.service manually
+    file:
+      src: "{{ item.src | default(omit) }}"
+      path: "{{ item.path }}"
+      state: "{{ item.state }}"
+    with_items: "{{ gnome_rescue }}"
   tags: gnome
 
 - name: stat yaourt

@@ -13,3 +13,11 @@ gnome_dconf:
     - /etc/dconf/db/local.d/23-ansible-deja-dup
     - /etc/dconf/db/local.d/25-ansible-builder
     - /etc/dconf/db/local.d/41-ansible-extension-arch-update
+
+gnome_rescue:
+  - path: /etc/systemd/system/multi-user.target.wants
+    state: directory
+  - path: /etc/systemd/system/display-manager.service
+    src: /usr/lib/systemd/system/gdm.service
+    state: link
+
