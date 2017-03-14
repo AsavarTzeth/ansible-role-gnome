@@ -6,7 +6,7 @@ custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybin
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/gnome-terminal]
 binding='<Primary><Alt>t'
 command='gnome-terminal'
-{% if 'sv_SE' in locale_lang %}
+{% if 'sv_SE' in sys_config_locale_lang %}
 name='Öppna Terminal'
 {% else %}
 name='Open Terminal'
