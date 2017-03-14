@@ -21,3 +21,41 @@ gnome_rescue:
     src: /usr/lib/systemd/system/gdm.service
     state: link
 
+deja_dup_include_list:
+  - $HOME
+  - .local/share/Steam/userdata
+
+deja_dup_exclude_list:
+  - $TRASH
+  - $DOWNLOAD
+  - $DESKTOP
+  - .cache
+  - .cert
+  - .ssh
+  - .config/chromium
+  - .config/google-chrome
+  - .electron
+  - .electron-gyp
+  - .local/share/gnome-boxes/images
+  - .local/share/libvirt/images
+  - .local/share/Steam/appcache
+  - .local/share/Steam/config
+  - .local/share/Steam/depotcache
+  - .local/share/Steam/package
+  - .local/share/Steam/steam
+  - .local/share/Steam/steamapps
+  - .local/share/Steam/SteamApps
+  - .local/share/Steam/tenfoot
+  - .local/share/Steam/ubuntu12_32
+  - .local/share/Steam/ubuntu12_64
+  - .local/share/wineprefixes
+  - .mozilla
+  - .node-gyp
+  - .npm
+  - .nv
+  - .PlayOnLinux/tmp
+  - .PlayOnLinux/wine
+  - .PlayOnLinux/wineprefix
+  - .ssh
+  - .steam
+  - .wine
