@@ -1,0 +1,16 @@
+galaxy_info:
+  author: Patrik Nilsson
+  description: manages gnome, gdm, dconf and gnome extensions 
+  license: BSD
+  min_ansible_version: 2.2
+  github_branch: master
+
+  platforms:
+    - name: ArchLinux
+      versions:
+        - all
+        - any
+
+  galaxy_tags: ['gnome','gdm','dconf','extensions','gnome-shell']
+
+dependencies: []
