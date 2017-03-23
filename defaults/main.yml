@@ -33,8 +33,10 @@ gnome_packages:
 
 gnome_shell_extensions: []
 
-owncloud_fqdn: cloud.domain.tld
-
 # The default keymap used in graphical sessions (X11/Wayland)
 gnome_input_sources:
   - ['xkb','se']
+
+# The aur helper that will be used with arch-update extension, if installed
+# By default it is empty, which will use plain pacman with sudo.
+gnome_aur_helper: ''

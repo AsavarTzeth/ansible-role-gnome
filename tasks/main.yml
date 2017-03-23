@@ -5,11 +5,6 @@
     update_cache: true
   tags: gnome
 
-- name: stat yaourt
-  stat: path=/usr/bin/yaourt
-  register: yaourt
-  tags: gnome
-
 - name: setup dconf dirs
   file:
     path: "{{ item }}"
