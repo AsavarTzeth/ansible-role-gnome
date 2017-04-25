@@ -1,7 +1,9 @@
 {{ ansible_managed | comment }}
 
 [org/gnome/shell/extensions/arch-update]
-{% if gnome_aur_helper != '' %}
+{% if gnome_aur_helper == 'pacaur' %}
+update-cmd="gnome-terminal -e 'sh -c \"{{ gnome_aur_helper }} -Syu ; echo Done - Press Enter to exit; read\" '"
+{% elif gnome_aur_helper == 'yaourt' %}
 update-cmd="gnome-terminal -e 'sh -c \"{{ gnome_aur_helper }} -Syua ; echo Done - Press Enter to exit; read\" '"
 {% else %}
 update-cmd="gnome-terminal -e 'sh -c \"sudo pacman -Syu ; echo Done - Press Enter to exit; read\" '"
