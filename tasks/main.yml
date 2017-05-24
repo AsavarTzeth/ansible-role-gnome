@@ -1,50 +1,49 @@
 ---
-- name: install gnome base packages
-  pacman:
-    name: "{{ gnome_packages }}"
-    update_cache: true
-  tags: gnome
-
-- name: setup dconf dirs
-  file:
-    path: "{{ item }}"
-    state: directory
-    mode: 0755
-  with_items: "{{ gnome_dconf.dirs }}"
-  tags: gnome
-
-- name: set dconf defaults
-  template:
-    src: "{{ item | basename }}.j2"
-    dest: "{{ item }}"
-    mode: 0644
-  with_items: "{{ gnome_dconf.files }}"
-  notify: update dconf db
-  tags: gnome
-
-- name: install gnome shell extensions
-  gnome_shell_extension:
-    name: "{{ item.0.id }}"
-    state: "{{ item.0.state | default(omit) }}"
-    enabled: "{{ item.0.enabled | default(omit) }}"
-    gnome_extension_path: "/home/{{ item.1 }}/.local/share/gnome-shell/extensions/"
-  become: true
-  become_user: "{{ item.1 }}"
-  with_subelements:
-    - "{{ gnome_shell_extensions }}"
-    - users
-  tags: gnome,gnome-extensions
-
 - block:
-  - name: enable gdm.service
-    systemd:
-      name: gdm.service
-      enabled: true
-  rescue:
-  - name: enable gdm.service manually
+  - name: install gnome base packages
+    pacman:
+      name: "{{ gnome_packages }}"
+      update_cache: true
+
+  - name: setup dconf dirs
     file:
-      src: "{{ item.src | default(omit) }}"
-      path: "{{ item.path }}"
-      state: "{{ item.state }}"
-    with_items: "{{ gnome_rescue }}"
+      path: "{{ item }}"
+      state: directory
+      mode: 0755
+    with_items: "{{ gnome_dconf.dirs }}"
+
+  - name: set dconf defaults
+    template:
+      src: "{{ item | basename }}.j2"
+      dest: "{{ item }}"
+      mode: 0644
+    with_items: "{{ gnome_dconf.files }}"
+    notify: update dconf db
+
+  - name: install gnome shell extensions
+    gnome_shell_extension:
+      name: "{{ item.0.id }}"
+      state: "{{ item.0.state | default(omit) }}"
+      enabled: "{{ item.0.enabled | default(omit) }}"
+      gnome_extension_path: "/home/{{ item.1 }}/.local/share/gnome-shell/extensions/"
+    become_user: "{{ item.1 }}"
+    with_subelements:
+      - "{{ gnome_shell_extensions }}"
+      - users
+    tags: gnome-extensions
+
+  - block:
+    - name: enable gdm.service
+      systemd:
+        name: gdm.service
+        enabled: true
+    rescue:
+    - name: enable gdm.service manually
+      file:
+        src: "{{ item.src | default(omit) }}"
+        path: "{{ item.path }}"
+        state: "{{ item.state }}"
+      with_items: "{{ gnome_rescue }}"
+
+  become: true
   tags: gnome

@@ -1,4 +1,5 @@
 ---
+# The default set of packages that make the core gnome installation
 gnome_packages:
   - adwaita-icon-theme
   - eog
@@ -31,6 +32,7 @@ gnome_packages:
   - yelp
   - gedit
 
+# The default set of gnome extensions to install
 gnome_shell_extensions: []
 
 # The default keymap used in graphical sessions (X11/Wayland)
